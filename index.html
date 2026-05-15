@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payments Industry A–Z Glossary — Stable Capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F4F2ED;--surface:#FFFFFF;--surface-alt:#F9F8F5;
+  --ink:#1A1916;--ink-2:#4A4844;--ink-3:#8C8A85;--ink-4:#C2C0BB;--rule:#E5E3DE;
+  --accent:#1B4FD8;--accent-light:#EEF2FC;
+  --green:#0F6E56;--green-light:#E1F5EE;
+  --amber:#8A5000;--amber-light:#FEF3E2;
+  --red:#9B2626;--red-light:#FDECEC;
+  --br:10px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
+
+/* HEADER */
+.header{background:var(--ink);padding:0 40px}
+.header-inner{max-width:1000px;margin:0 auto;padding:32px 0 28px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+.header-left .brand{font-family:'DM Mono',monospace;font-size:11px;color:#6B6966;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.header h1{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:#fff;letter-spacing:-.03em;line-height:1}
+.header-right{text-align:right;flex-shrink:0}
+.header-right .ed{font-family:'DM Mono',monospace;font-size:10px;color:#6B6966;text-transform:uppercase;letter-spacing:.08em}
+.header-right .count{font-size:40px;font-weight:300;color:#fff;line-height:1;margin-top:2px;font-family:'Syne',sans-serif}
+.header-right .count-label{font-size:11px;color:#6B6966;margin-top:2px}
+.header-desc{background:#13161A;border-top:1px solid #252B34;padding:0 40px}
+.header-desc-inner{max-width:1000px;margin:0 auto;padding:16px 0;font-size:13px;color:#6B6966;line-height:1.6;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.header-desc-inner a{color:#8C8A85;text-decoration:none}
+.header-desc-inner a:hover{color:#C2C0BB}
+
+/* STICKY SEARCH BAR */
+.search-bar{background:var(--surface);border-bottom:1px solid var(--rule);padding:0 40px;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(0,0,0,.06)}
+.search-bar-inner{max-width:1000px;margin:0 auto;padding:14px 0;display:flex;gap:12px;align-items:center}
+.search-wrap{flex:1;position:relative}
+.search-wrap::before{content:'🔍';position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:14px;pointer-events:none}
+.search-input{width:100%;font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 14px 10px 42px;border:1px solid var(--rule);border-radius:var(--br);background:var(--surface-alt);color:var(--ink);transition:all .15s}
+.search-input:focus{outline:none;border-color:var(--ink-4);background:var(--surface)}
+.search-input::placeholder{color:var(--ink-3)}
+.result-count{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-3);white-space:nowrap;letter-spacing:.05em}
+
+/* LETTER NAV */
+.letter-nav{background:var(--surface);border-bottom:1px solid var(--rule);padding:0 40px;overflow-x:auto}
+.letter-nav-inner{max-width:1000px;margin:0 auto;display:flex;gap:2px;padding:10px 0;min-width:max-content}
+.ln-btn{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;width:32px;height:32px;border:none;background:transparent;color:var(--ink-3);cursor:pointer;border-radius:6px;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.ln-btn:hover{background:var(--surface-alt);color:var(--ink)}
+.ln-btn.active{background:var(--ink);color:#fff}
+.ln-btn.empty{color:var(--ink-4);cursor:default}
+.ln-btn.empty:hover{background:transparent;color:var(--ink-4)}
+
+/* MAIN */
+.main{max-width:1000px;margin:0 auto;padding:32px 40px 80px}
+
+/* LETTER SECTION */
+.letter-section{margin-bottom:40px;scroll-margin-top:130px}
+.letter-section.hidden{display:none}
+.letter-head{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.letter-char{font-family:'Syne',sans-serif;font-size:48px;font-weight:800;color:var(--ink);letter-spacing:-.04em;line-height:1;width:56px;flex-shrink:0}
+.letter-line{flex:1;height:1px;background:var(--rule)}
+.letter-count{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-3);letter-spacing:.08em}
+
+/* TERMS GRID */
+.terms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.term-card{background:var(--surface);border:1px solid var(--rule);border-radius:var(--br);padding:14px 16px;transition:border-color .15s}
+.term-card:hover{border-color:var(--ink-4)}
+.term-card.hidden{display:none}
+.term-name{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:5px;line-height:1.3}
+.term-abbr{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-3);margin-left:6px;font-weight:400}
+.term-def{font-size:12px;color:var(--ink-2);line-height:1.65}
+.term-tag{display:inline-block;font-size:10px;font-weight:500;padding:2px 7px;border-radius:20px;margin-top:7px;letter-spacing:.03em}
+.tag-core{background:var(--accent-light);color:var(--accent)}
+.tag-risk{background:var(--red-light);color:var(--red)}
+.tag-fees{background:var(--amber-light);color:var(--amber)}
+.tag-tech{background:var(--green-light);color:var(--green)}
+.tag-scheme{background:#F0EEFF;color:#5340C0}
+
+/* NO RESULTS */
+.no-results{display:none;text-align:center;padding:60px 20px}
+.no-results.visible{display:block}
+.no-results p{font-size:14px;color:var(--ink-3)}
+
+/* CTA */
+.cta-section{background:var(--ink);border-radius:var(--br);padding:36px 40px;display:flex;gap:32px;align-items:center;margin-top:16px}
+.cta-copy{flex:1}
+.cta-eyebrow{font-family:'DM Mono',monospace;font-size:10px;color:#6B6966;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.cta-h{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:8px;line-height:1.2}
+.cta-body{font-size:13px;color:#6B6966;line-height:1.7}
+.cta-body strong{color:#A8A49E;font-weight:500}
+.cta-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.cta-pill{font-family:'DM Mono',monospace;font-size:10px;padding:3px 10px;border-radius:20px;border:1px solid #252B34;color:#5C5852;letter-spacing:.05em}
+.cta-action{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px}
+.cta-btn{display:inline-block;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;padding:13px 28px;background:#fff;color:var(--ink);border-radius:8px;text-decoration:none;transition:all .15s;white-space:nowrap}
+.cta-btn:hover{background:#E5E3DE}
+.cta-note{font-size:11px;color:#5C5852;text-align:center}
+
+/* PAGE FOOTER */
+.page-footer{text-align:center;padding:0 40px 40px;max-width:1000px;margin:0 auto}
+.page-footer p{font-size:11px;color:var(--ink-3);line-height:1.7}
+.page-footer a{color:var(--ink-3);text-decoration:none}
+
+@media(max-width:680px){
+  .header,.header-desc,.search-bar,.letter-nav,.main,.page-footer{padding-left:20px;padding-right:20px}
+  .header h1{font-size:26px}
+  .header-inner{flex-direction:column;align-items:flex-start}
+  .terms-grid{grid-template-columns:1fr}
+  .cta-section{flex-direction:column;padding:24px}
+  .cta-action{width:100%}
+  .cta-btn{width:100%;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header">
+    <div class="header-inner">
+      <div class="header-left">
+        <div class="brand">Stable Capital · Reference Series</div>
+        <h1>Payments Industry<br>A–Z Glossary</h1>
+      </div>
+      <div class="header-right">
+        <div class="ed">2025 Edition</div>
+        <div class="count" id="total-count">130</div>
+        <div class="count-label">Terms defined</div>
+      </div>
+    </div>
+  </div>
+  <div class="header-desc">
+    <div class="header-desc-inner">
+      <span>Plain English definitions for everyone working in or alongside the payments industry — from founders and finance teams to consultants and operations staff. No jargon in the definitions. Free to use and share.</span>
+      <a href="https://stable-capital.co.uk">stable-capital.co.uk →</a>
+    </div>
+  </div>
+</header>
+
+<div class="search-bar">
+  <div class="search-bar-inner">
+    <div class="search-wrap">
+      <input class="search-input" type="text" id="search" placeholder="Search any term, abbreviation or concept..." oninput="doSearch()" autocomplete="off" spellcheck="false">
+    </div>
+    <div class="result-count" id="result-count"></div>
+  </div>
+</div>
+
+<nav class="letter-nav" aria-label="Jump to letter">
+  <div class="letter-nav-inner" id="letter-nav"></div>
+</nav>
+
+<main class="main" id="main">
+  <!-- Rendered by JS -->
+  <div class="no-results" id="no-results"><p>No terms match your search. Try a different word or abbreviation.</p></div>
+</main>
+
+<div style="max-width:1000px;margin:0 auto;padding:0 40px 20px">
+  <div class="cta-section">
+    <div class="cta-copy">
+      <div class="cta-eyebrow">Stable Capital</div>
+      <div class="cta-h">Now you know the language.<br>Let's talk about the numbers.</div>
+      <div class="cta-body">We work with <strong>30+ acquiring banks and payment processors</strong> to find the right structure for your business — across all risk levels, all card types, and all geographies. IC++ pricing, smart routing, DCC revenue, and APM strategy.</div>
+      <div class="cta-pills">
+        <span class="cta-pill">IC++ specialists</span>
+        <span class="cta-pill">30+ acquirers</span>
+        <span class="cta-pill">High-risk welcome</span>
+        <span class="cta-pill">Smart routing</span>
+        <span class="cta-pill">DCC revenue share</span>
+      </div>
+    </div>
+    <div class="cta-action">
+      <a class="cta-btn" href="https://stable-capital.co.uk" target="_blank" rel="noopener">Get in touch →</a>
+      <span class="cta-note">No commitment. Just a conversation.</span>
+    </div>
+  </div>
+</div>
+
+<div class="page-footer">
+  <p>© 2025 Stable Capital Ltd · <a href="https://stable-capital.co.uk">stable-capital.co.uk</a> · Free to share with attribution. For information purposes only.</p>
+</div>
+
+<script>
+const TERMS = [
+
+  // A
+  {term:'Acquirer',abbr:'',letter:'A',def:'The bank or financial institution that processes card payments on behalf of a merchant. The acquirer holds the merchant account and settles funds after deducting fees.',tags:['core']},
+  {term:'Acquiring bank',abbr:'',letter:'A',def:'Another name for the acquirer — the bank that maintains the merchant\'s payment processing account and takes on the risk of accepting card payments.',tags:['core']},
+  {term:'Alternative Payment Methods',abbr:'APMs',letter:'A',def:'Payment options other than traditional debit and credit cards — including bank transfers, digital wallets, Buy Now Pay Later, and local payment schemes. Often cheaper to process than cards.',tags:['tech']},
+  {term:'Authorisation',abbr:'Auth',letter:'A',def:'The process by which a card payment is approved or declined by the issuing bank. An authorisation confirms the cardholder has sufficient funds but does not yet move money.',tags:['core']},
+  {term:'Authorisation fee',abbr:'',letter:'A',def:'A small fixed fee charged per authorisation attempt — including declined transactions. Often overlooked in headline pricing discussions.',tags:['fees']},
+  {term:'Authorisation rate',abbr:'',letter:'A',def:'The percentage of payment attempts that are successfully approved. A higher authorisation rate means fewer failed transactions and more revenue captured.',tags:['core']},
+  {term:'Average Transaction Value',abbr:'ATV',letter:'A',def:'The mean value of a single transaction across a given period. Used in pricing negotiations — a higher ATV typically means lower per-transaction costs as a percentage of revenue.',tags:['core']},
+  {term:'Account Updater',abbr:'',letter:'A',def:'A service that automatically updates stored card details when a card is replaced or renewed — reducing failed recurring payments without requiring the customer to re-enter their details.',tags:['tech']},
+
+  // B
+  {term:'Bank Identification Number',abbr:'BIN',letter:'B',def:'The first six to eight digits of a card number that identify the issuing bank, card type, and country of origin. Used by acquirers to route transactions and calculate interchange.',tags:['core']},
+  {term:'Batch processing',abbr:'',letter:'B',def:'The process of grouping transactions together and submitting them for settlement at one time — typically at end of day. Most modern gateways settle in real time or near-real time.',tags:['core']},
+  {term:'Blended rate',abbr:'',letter:'B',def:'A single all-in percentage charged by an acquirer regardless of card type, rather than the actual interchange cost per card. Simple to understand, harder to audit — see IC++.',tags:['fees']},
+  {term:'Buy Now Pay Later',abbr:'BNPL',letter:'B',def:'A payment method allowing consumers to split a purchase into instalments, typically interest-free for short periods. Popular in e-commerce. Klarna and Clearpay are common providers.',tags:['tech']},
+  {term:'BIN Sponsorship',abbr:'',letter:'B',def:'An arrangement where a regulated entity sponsors a non-bank programme manager to issue cards or process payments under their BIN range. Common in fintech.',tags:['core']},
+
+  // C
+  {term:'Card not present',abbr:'CNP',letter:'C',def:'A transaction where the physical card is not used — including online, phone, and mail order payments. Higher fraud risk than card-present transactions, resulting in higher interchange rates.',tags:['core']},
+  {term:'Card present',abbr:'CP',letter:'C',def:'A transaction where the physical card is tapped, inserted, or swiped at the point of sale. Lower fraud risk than CNP, typically resulting in lower interchange rates.',tags:['core']},
+  {term:'Card scheme',abbr:'',letter:'C',def:'The network that operates the rules, infrastructure, and branding for card payments — primarily Visa and Mastercard globally. Also includes Amex, UnionPay, and others. Sets interchange rates.',tags:['scheme']},
+  {term:'Capture',abbr:'',letter:'C',def:'The step after authorisation where the actual funds are claimed. In most e-commerce transactions, authorisation and capture happen simultaneously. Hotels and car rentals often authorise then capture later.',tags:['core']},
+  {term:'Chargeback',abbr:'CB',letter:'C',def:'A forced reversal of a card transaction initiated by the cardholder through their issuing bank. The merchant must provide evidence to dispute it. Fees typically £15–50 per incident.',tags:['risk']},
+  {term:'Chargeback ratio',abbr:'',letter:'C',def:'The percentage of transactions that result in chargebacks over a given period. Card schemes set thresholds — exceeding them can result in fines or account termination.',tags:['risk']},
+  {term:'Chargeback representment',abbr:'',letter:'C',def:'The process of challenging a chargeback by submitting evidence to the issuing bank that the original transaction was legitimate. A successful representment returns the funds to the merchant.',tags:['risk']},
+  {term:'Currency conversion',abbr:'',letter:'C',def:'The process of converting a transaction amount from the merchant\'s currency to the cardholder\'s home currency. The exchange rate applied and who benefits from the spread matters enormously — see DCC.',tags:['fees']},
+
+  // D
+  {term:'Dynamic Currency Conversion',abbr:'DCC',letter:'D',def:'A service allowing international cardholders to pay in their home currency at the point of sale. The FX margin (typically 3–4%) can be shared with the merchant — or kept entirely by the acquirer.',tags:['fees']},
+  {term:'Decline',abbr:'',letter:'D',def:'When an authorisation request is rejected by the issuing bank. Can be hard (fraudulent card, stolen card) or soft (insufficient funds, unusual activity). Soft declines are often retriable.',tags:['core']},
+  {term:'Decline rate',abbr:'',letter:'D',def:'The percentage of payment attempts that are declined. Industry average for e-commerce is 5–15%. High decline rates directly reduce revenue and often indicate poor 3DS implementation or acquirer mismatch.',tags:['core']},
+  {term:'Decline fee',abbr:'',letter:'D',def:'A fee charged per declined transaction attempt. Often listed separately from the processing rate and frequently overlooked when comparing acquirer pricing.',tags:['fees']},
+  {term:'Direct debit',abbr:'DD',letter:'D',def:'A bank-authorised instruction allowing a business to collect variable or fixed amounts directly from a customer\'s bank account. Used widely for subscriptions and B2B invoicing. Lower cost than card payments.',tags:['core']},
+  {term:'Dispute',abbr:'',letter:'D',def:'A formal challenge raised by a cardholder against a transaction. May result in a chargeback if not resolved in the merchant\'s favour. The broader term that covers both chargebacks and pre-arbitration disputes.',tags:['risk']},
+
+  // E
+  {term:'E-money institution',abbr:'EMI',letter:'E',def:'A regulated entity licensed to issue electronic money and provide payment services, but not a full bank. DECTA, Stripe, and many fintechs operate as EMIs. Subject to FCA regulation in the UK.',tags:['core']},
+  {term:'Effective rate',abbr:'',letter:'E',def:'The true all-in cost of card acceptance expressed as a percentage of total turnover — including interchange, scheme fees, acquirer margin, and transaction fees. Often higher than the headline rate.',tags:['fees']},
+  {term:'EMV',abbr:'',letter:'E',def:'The global standard for chip card payments, named after its founders Europay, Mastercard and Visa. Chip-and-PIN and contactless payments both use EMV technology.',tags:['tech']},
+
+  // F
+  {term:'Fraud',abbr:'',letter:'F',def:'Unauthorised use of a card or payment instrument. Includes card-not-present fraud, account takeover, and identity theft. Managing fraud rates is critical to maintaining card scheme standing.',tags:['risk']},
+  {term:'Fraud rate',abbr:'',letter:'F',def:'The proportion of transactions identified as fraudulent. Card schemes set maximum thresholds — breaching them can result in monitoring programmes, fines, and ultimately account closure.',tags:['risk']},
+
+  // G
+  {term:'Gateway',abbr:'',letter:'G',def:'The technology that connects a merchant\'s website or POS system to the payment processing network — capturing card data, routing authorisation requests, and returning approve/decline responses.',tags:['tech']},
+  {term:'Gross settlement',abbr:'',letter:'G',def:'Settlement where the full transaction amount is transferred to the merchant, with fees billed separately. Opposite of net settlement.',tags:['core']},
+
+  // H
+  {term:'High risk',abbr:'',letter:'H',def:'A merchant category that carries elevated fraud, chargeback, or regulatory risk — including gambling, adult content, cryptocurrency, FOREX trading, and nutraceuticals. Typically results in higher processing rates and stricter underwriting.',tags:['risk']},
+
+  // I
+  {term:'Interchange',abbr:'IC',letter:'I',def:'The fee paid by the acquirer to the issuing bank on every card transaction. Set by the card schemes (Visa, Mastercard) — not the acquirer. The largest component of processing cost for most merchants.',tags:['fees']},
+  {term:'Interchange plus plus',abbr:'IC++',letter:'I',def:'A pricing model where interchange and scheme fees pass through at actual cost, with a separate, transparent acquirer margin added on top. The most transparent pricing structure available.',tags:['fees']},
+  {term:'Interchange reimbursement fee',abbr:'IRF',letter:'I',def:'Another term for interchange — the fee the card issuer receives for processing a transaction. The name reflects that it compensates the issuer for the cost and risk of extending credit.',tags:['fees']},
+  {term:'Issuer',abbr:'',letter:'I',def:'The bank or financial institution that issues the card to the consumer. The issuer authorises transactions, takes on credit risk, and receives interchange on each transaction.',tags:['core']},
+  {term:'Issuer processing',abbr:'',letter:'I',def:'The technology infrastructure that supports card issuance — authorising transactions, managing accounts, and applying the issuer\'s rules. Some fintechs offer white-label issuer processing.',tags:['tech']},
+
+  // K
+  {term:'KYC',abbr:'Know Your Customer',letter:'K',def:'The regulatory process of verifying the identity of a merchant or customer before providing financial services. Required by AML regulations. Includes identity verification, beneficial ownership checks, and ongoing monitoring.',tags:['risk']},
+  {term:'KYB',abbr:'Know Your Business',letter:'K',def:'The business equivalent of KYC — verifying the identity, ownership, and legitimacy of a business before onboarding. A key part of the acquirer underwriting process.',tags:['risk']},
+
+  // L
+  {term:'Liability shift',abbr:'',letter:'L',def:'A rule that transfers fraud liability from the merchant to the issuer (or vice versa) depending on which party supports certain security standards. Merchants not supporting 3D Secure can bear liability for disputed transactions.',tags:['risk']},
+
+  // M
+  {term:'Merchant account',abbr:'',letter:'M',def:'A type of bank account that allows a business to accept card payments. Held with an acquiring bank, which settles card transactions into the merchant\'s nominated bank account.',tags:['core']},
+  {term:'Merchant category code',abbr:'MCC',letter:'M',def:'A four-digit code assigned to a merchant that classifies the type of business and goods or services sold. Affects interchange rates, card scheme rules, and risk classification.',tags:['scheme']},
+  {term:'Merchant discount rate',abbr:'MDR',letter:'M',def:'The total percentage fee charged to the merchant for accepting a card payment. On IC++ pricing, MDR = interchange + scheme fees + acquirer margin. On blended pricing, it\'s a single bundled rate.',tags:['fees']},
+  {term:'Mastercard Gateway',abbr:'',letter:'M',def:'Mastercard\'s own payment gateway service — separate from Mastercard\'s card scheme operations. Used by some acquirers and merchants as a processing infrastructure layer.',tags:['tech']},
+  {term:'Minimum monthly service charge',abbr:'MMSC',letter:'M',def:'A minimum fee payable to an acquirer each month, regardless of transaction volume. If processing fees fall below the minimum, the merchant pays the difference. Common in contracts for low-volume merchants.',tags:['fees']},
+  {term:'Multi-currency processing',abbr:'',letter:'M',def:'The ability to accept and settle card payments in multiple currencies. Important for international merchants — some acquirers support dozens of settlement currencies, others are limited.',tags:['core']},
+
+  // N
+  {term:'Net settlement',abbr:'',letter:'N',def:'Settlement where the acquirer deducts processing fees before transferring funds to the merchant. The merchant receives a net amount rather than the gross transaction value.',tags:['core']},
+  {term:'Non-sufficient funds',abbr:'NSF',letter:'N',def:'A decline reason indicating the cardholder\'s account does not have enough funds to cover the transaction. A soft decline — often retriable after a short period.',tags:['core']},
+
+  // O
+  {term:'Open banking',abbr:'',letter:'O',def:'A system allowing third-party financial providers to access bank account data and initiate payments, with the account holder\'s consent. Based on APIs. Enabled by PSD2 in Europe and UK.',tags:['tech']},
+  {term:'Orchestration',abbr:'',letter:'O',def:'A layer of technology that routes transactions across multiple payment providers — choosing the best acquirer for each transaction based on card type, geography, and cost. Increases authorisation rates and reduces costs.',tags:['tech']},
+
+  // P
+  {term:'Payment facilitator',abbr:'PayFac',letter:'P',def:'A company that aggregates multiple merchants under a single master merchant account, removing the need for each merchant to have their own direct acquiring relationship. Stripe and Square operate as PayFacs.',tags:['core']},
+  {term:'Payment service provider',abbr:'PSP',letter:'P',def:'A company that offers merchants the ability to accept payments — typically combining gateway, acquiring, and processing under one contract. A broader term that includes PayFacs, acquirers, and gateways.',tags:['core']},
+  {term:'PCI DSS',abbr:'',letter:'P',def:'Payment Card Industry Data Security Standard. A set of security requirements that any business storing, processing, or transmitting cardholder data must comply with. Non-compliance can result in fines.',tags:['risk']},
+  {term:'PCI compliance fee',abbr:'',letter:'P',def:'A monthly fee some acquirers charge to support merchants\' PCI DSS compliance obligations. Can also appear as a non-compliance fee if the merchant has not completed their annual assessment.',tags:['fees']},
+  {term:'Pre-authorisation',abbr:'Pre-auth',letter:'P',def:'An authorisation that places a hold on funds without immediately capturing them. Used by hotels, car hire companies, and restaurants to guarantee payment before the final amount is known.',tags:['core']},
+  {term:'Principal member',abbr:'',letter:'P',def:'A financial institution that holds direct membership with Visa or Mastercard — allowing it to issue cards and acquire transactions independently. DECTA is an example. Non-principal members must work through a principal.',tags:['scheme']},
+  {term:'Processing',abbr:'',letter:'P',def:'The technical steps involved in handling a payment — from the initial card swipe or entry, through authorisation, to settlement. Often used loosely to describe the whole acquiring and gateway function.',tags:['core']},
+  {term:'PSD2',abbr:'',letter:'P',def:'Payment Services Directive 2. EU legislation that opened banking data to third parties via open banking and mandated Strong Customer Authentication for online payments.',tags:['tech']},
+
+  // R
+  {term:'Reason code',abbr:'',letter:'R',def:'A code assigned to a chargeback by the card scheme that classifies the type of dispute — for example, fraud, not as described, duplicate processing. Each reason code requires a specific type of evidence to challenge.',tags:['risk']},
+  {term:'Recurring payment',abbr:'',letter:'R',def:'A transaction billed automatically on a regular schedule without the cardholder needing to re-enter card details each time. Requires an initial authorisation with stored credential agreement.',tags:['core']},
+  {term:'Refund',abbr:'',letter:'R',def:'A return of funds to a cardholder, typically initiated by the merchant. Not the same as a chargeback — a refund is voluntary and agreed, whereas a chargeback is forced by the issuer.',tags:['core']},
+  {term:'Refund fee',abbr:'',letter:'R',def:'A fee charged by some acquirers per refund transaction. Often overlooked — can be significant for businesses with high return rates.',tags:['fees']},
+  {term:'Reserve',abbr:'',letter:'R',def:'Funds held back by an acquirer as security against potential chargebacks or fraud losses. Common for higher-risk merchants. Can be rolling (a percentage held from each settlement) or fixed.',tags:['risk']},
+  {term:'Rolling reserve',abbr:'',letter:'R',def:'A type of security deposit where a percentage of each settlement is held by the acquirer for a fixed period (typically 90–180 days) before being released. Common for medium and high-risk merchants.',tags:['risk']},
+  {term:'Routing',abbr:'',letter:'R',def:'The process of directing a transaction to a specific acquirer or processing path. Smart routing uses algorithms to choose the route most likely to result in a successful authorisation at the lowest cost.',tags:['tech']},
+
+  // S
+  {term:'Scheme fees',abbr:'',letter:'S',def:'Fees charged by card schemes (Visa, Mastercard) to acquirers and issuers for using their network infrastructure. Passed through to merchants on IC++ pricing. Typically 0.10–0.20% of transaction value.',tags:['fees']},
+  {term:'SCA',abbr:'Strong Customer Authentication',letter:'S',def:'A security requirement under PSD2 mandating that online payments above €30 use at least two of three factors: something the customer knows, has, or is. Implemented via 3D Secure v2.',tags:['tech']},
+  {term:'Settlement',abbr:'',letter:'S',def:'The process of transferring funds from the acquirer to the merchant\'s bank account following a batch of completed transactions. Settlement speed varies — typically T+1 to T+3.',tags:['core']},
+  {term:'Settlement currency',abbr:'',letter:'S',def:'The currency in which the merchant receives payment from the acquirer. May differ from the transaction currency — important for international merchants managing FX exposure.',tags:['core']},
+  {term:'Split payment',abbr:'',letter:'S',def:'A transaction split across two or more payment methods — for example, part card, part gift voucher. Requires gateway support and can complicate accounting.',tags:['tech']},
+  {term:'Stored credential',abbr:'',letter:'S',def:'Card details saved with the merchant\'s consent for use in future transactions. Must be properly authorised under scheme rules, with clear distinction between initial and subsequent use.',tags:['core']},
+  {term:'Surcharge',abbr:'',letter:'S',def:'An additional fee added to a transaction to cover processing costs. Surcharging consumer cards has been banned in the UK since 2018. Surcharges on commercial/business cards remain legal.',tags:['fees']},
+
+  // T
+  {term:'Terminal',abbr:'',letter:'T',def:'A physical device used to accept card payments at the point of sale — by chip-and-PIN, contactless, or magnetic stripe. Ranges from countertop units to mobile card readers.',tags:['tech']},
+  {term:'Three-domain secure',abbr:'3DS',letter:'T',def:'An authentication protocol that adds a layer of security to card-not-present transactions — typically a one-time passcode or biometric check. Version 2 (3DS2) improves the experience with risk-based challenges.',tags:['tech']},
+  {term:'Tokenisation',abbr:'',letter:'T',def:'The replacement of sensitive card data with a non-sensitive substitute (a token) that can be stored and used without exposing the actual card number. Reduces PCI scope and fraud risk.',tags:['tech']},
+  {term:'Transaction fee',abbr:'',letter:'T',def:'A fixed fee charged per transaction, in addition to the percentage processing rate. Sometimes called a gateway fee or per-auth fee. Can become significant at high transaction volumes.',tags:['fees']},
+
+  // U
+  {term:'Underwriting',abbr:'',letter:'U',def:'The process by which an acquirer evaluates the risk of taking on a new merchant — assessing business type, financial stability, fraud and chargeback history, and compliance with scheme rules.',tags:['risk']},
+
+  // V
+  {term:'Virtual terminal',abbr:'',letter:'V',def:'A web-based interface that allows merchants to process card payments manually — by entering card details themselves, usually for phone or mail order transactions. No physical terminal required.',tags:['tech']},
+  {term:'Void',abbr:'',letter:'V',def:'The cancellation of a transaction before it has been settled. Different from a refund — a voided transaction never moves money, whereas a refund reverses a completed payment.',tags:['core']},
+
+  // W
+  {term:'Wallet',abbr:'',letter:'W',def:'A digital payment method that stores card or bank details for quick checkout — including Apple Pay, Google Pay, and PayPal. Typically processed at the same interchange rate as the underlying card.',tags:['tech']},
+  {term:'Webhook',abbr:'',letter:'W',def:'An automated notification sent by a payment provider to a merchant\'s system when a specific event occurs — such as a payment being authorised, declined, or a chargeback being raised.',tags:['tech']},
+
+  // Z
+  {term:'Zero authorisation',abbr:'£0 auth',letter:'Z',def:'A £0.00 authorisation used to verify that a card is valid without charging it. Common before storing a card for recurring billing. Also used to confirm card details are current. Often carries a small per-auth fee.',tags:['core']},
+
+  // Additional important terms
+  {term:'Annual percentage rate',abbr:'APR',letter:'A',def:'The yearly cost of borrowing, expressed as a percentage. Relevant when a payment product includes a credit element — such as BNPL or merchant cash advance.',tags:['core']},
+  {term:'Anti-money laundering',abbr:'AML',letter:'A',def:'The legal and regulatory framework designed to prevent criminals from disguising illegal funds as legitimate income. Payment processors must comply with AML requirements and report suspicious activity.',tags:['risk']},
+  {term:'Arbitration',abbr:'',letter:'A',def:'The final stage of a chargeback dispute, where the card scheme acts as adjudicator between the issuer and acquirer. Expensive for both parties — most disputes are resolved before this point.',tags:['risk']},
+  {term:'Batch',abbr:'',letter:'B',def:'A group of transactions submitted together for processing or settlement. Some systems still process in daily batches; others process in real time.',tags:['core']},
+  {term:'Chargeback threshold',abbr:'',letter:'C',def:'The maximum acceptable chargeback ratio set by card schemes. Visa\'s threshold is 0.9%; Mastercard\'s is 1.5%. Exceeding these triggers monitoring programmes and potential fines.',tags:['risk']},
+  {term:'Cross-border fee',abbr:'',letter:'C',def:'An additional fee applied when the cardholder\'s card is issued in a different country from where the merchant is based. Typically 1.5–2.5% on top of the standard processing rate.',tags:['fees']},
+  {term:'Contactless',abbr:'',letter:'C',def:'A payment method using NFC (near-field communication) technology, allowing cards or devices to complete transactions by tapping rather than inserting or swiping.',tags:['tech']},
+  {term:'Deposit',abbr:'',letter:'D',def:'Funds transferred to the merchant\'s bank account following settlement. The amount is typically net of fees unless gross settlement has been agreed.',tags:['core']},
+  {term:'Excess interchange',abbr:'',letter:'E',def:'The difference between the interchange rate on a specific card type and the flat rate charged under a blended pricing model. On high-interchange cards (commercial, premium), this excess is absorbed by the provider — or passed to someone else.',tags:['fees']},
+  {term:'Floor limit',abbr:'',letter:'F',def:'A transaction value threshold below which a merchant can accept a card payment without requesting online authorisation. Largely obsolete in modern card processing but still referenced in scheme rules.',tags:['core']},
+  {term:'Foreign exchange',abbr:'FX',letter:'F',def:'The conversion between currencies. In payments, FX applies when a transaction is made in a currency different from the settlement currency. FX margins can be a significant hidden cost or — if managed well — a revenue opportunity via DCC.',tags:['fees']},
+  {term:'Gateway fee',abbr:'',letter:'G',def:'A charge for using a payment gateway\'s technology — typically a monthly fixed fee plus a per-transaction charge. Separate from the acquiring fee.',tags:['fees']},
+  {term:'Instalment payment',abbr:'',letter:'I',def:'A transaction split across multiple future payments. Common in Latin American markets (especially Brazil), and increasingly popular in Europe via BNPL providers.',tags:['core']},
+  {term:'IBAN',abbr:'International Bank Account Number',letter:'I',def:'A standardised international numbering system for bank accounts. Used to identify the destination account for bank transfers and SEPA payments across Europe.',tags:['core']},
+  {term:'Linked transaction',abbr:'',letter:'L',def:'A subsequent transaction connected to an original payment — such as a capture following a pre-auth, or a recurring charge following an initial authorisation. Must reference the original transaction ID.',tags:['core']},
+  {term:'Mastercard Merchant Registration Programme',abbr:'MMRP',letter:'M',def:'A scheme programme requiring certain higher-risk MCCs to register with Mastercard and pay an annual registration fee. Failure to register can result in non-compliance fines.',tags:['scheme']},
+  {term:'Near field communication',abbr:'NFC',letter:'N',def:'The short-range wireless technology that enables contactless card and device payments. Cards and phones communicate with terminals at a range of a few centimetres.',tags:['tech']},
+  {term:'One-click payment',abbr:'',letter:'O',def:'A checkout experience where a returning customer can complete a purchase with a single click, using previously stored card details. Reduces friction and typically improves conversion.',tags:['tech']},
+  {term:'Payment initiation service',abbr:'PIS',letter:'P',def:'An open banking service that initiates a payment directly from a customer\'s bank account, bypassing card networks entirely. Regulated under PSD2. Typically cheaper than card payments.',tags:['tech']},
+  {term:'Pay by link',abbr:'',letter:'P',def:'A payment method where the merchant sends a customer a unique URL that takes them directly to a secure payment page. Useful for phone, email, and social media sales.',tags:['tech']},
+  {term:'Point of sale',abbr:'POS',letter:'P',def:'The physical or digital location where a transaction takes place — whether a card terminal in a shop or a checkout page online.',tags:['core']},
+  {term:'Retrieval request',abbr:'',letter:'R',def:'A request from an issuing bank for information about a transaction — typically the first step before a chargeback is raised. Merchants should respond promptly with transaction evidence.',tags:['risk']},
+  {term:'SEPA',abbr:'Single Euro Payments Area',letter:'S',def:'A European payment integration initiative allowing eurozone businesses and consumers to make bank transfers across the EU as easily as domestic ones. Used for SEPA Credit Transfers and Direct Debits.',tags:['core']},
+  {term:'Soft decline',abbr:'',letter:'S',def:'A declined transaction that may succeed on retry — for example, due to insufficient funds or a temporary bank block. Different from a hard decline (stolen card, closed account) which should not be retried.',tags:['core']},
+  {term:'Sub-merchant',abbr:'',letter:'S',def:'A merchant that processes payments through a payment facilitator rather than holding their own acquiring relationship. Stripe merchants are technically sub-merchants under Stripe\'s master account.',tags:['core']},
+  {term:'SWIFT',abbr:'Society for Worldwide Interbank Financial Telecommunication',letter:'S',def:'The global messaging network used for cross-border bank transfers. SWIFT transfers typically take 1–5 business days and carry correspondent bank fees.',tags:['core']},
+  {term:'Visa Secure',abbr:'',letter:'V',def:'Visa\'s implementation of 3D Secure authentication for online card transactions. Formerly called Verified by Visa. Reduces fraud and can shift liability from merchant to issuer for authenticated transactions.',tags:['scheme']},
+  {term:'Volume discount',abbr:'',letter:'V',def:'A reduction in processing rates offered by an acquirer to merchants above a certain monthly transaction volume. One of the key reasons to negotiate pricing rather than accept published rates.',tags:['fees']},
+  {term:'Worldline',abbr:'',letter:'W',def:'One of Europe\'s largest payment processors and acquirers, formed from multiple acquisitions. Operates across processing, acquiring, and digital payment services for large merchants and banks.',tags:['core']},
+
+];
+
+// ── BUILD & RENDER ────────────────────────────────────────────────────────────
+const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+const byLetter = {};
+letters.forEach(l => byLetter[l] = []);
+TERMS.forEach(t => {
+  if (byLetter[t.letter]) byLetter[t.letter].push(t);
+});
+letters.forEach(l => byLetter[l].sort((a, b) => a.term.localeCompare(b.term)));
+
+const totalTerms = TERMS.length;
+document.getElementById('total-count').textContent = totalTerms;
+document.getElementById('result-count').textContent = totalTerms + ' terms';
+
+function tagHtml(tags) {
+  const map = { core: ['tag-core', 'Core'], risk: ['tag-risk', 'Risk & compliance'], fees: ['tag-fees', 'Fees & pricing'], tech: ['tag-tech', 'Technology'], scheme: ['tag-scheme', 'Card schemes'] };
+  return (tags || []).map(t => map[t] ? `<span class="term-tag ${map[t][0]}">${map[t][1]}</span>` : '').join('');
+}
+
+function renderAll(filter) {
+  const main = document.getElementById('main');
+  const nr = document.getElementById('no-results');
+  const q = (filter || '').toLowerCase().trim();
+
+  let totalVisible = 0;
+  let html = '';
+
+  letters.forEach(l => {
+    const terms = byLetter[l];
+    if (!terms.length) return;
+    const visible = terms.filter(t =>
+      !q ||
+      t.term.toLowerCase().includes(q) ||
+      (t.abbr && t.abbr.toLowerCase().includes(q)) ||
+      t.def.toLowerCase().includes(q)
+    );
+    if (!visible.length) return;
+    totalVisible += visible.length;
+
+    html += `<div class="letter-section" id="sec-${l}">
+      <div class="letter-head">
+        <div class="letter-char">${l}</div>
+        <div class="letter-line"></div>
+        <div class="letter-count">${visible.length} term${visible.length !== 1 ? 's' : ''}</div>
+      </div>
+      <div class="terms-grid">
+        ${visible.map(t => `
+          <div class="term-card">
+            <div class="term-name">${highlight(t.term, q)}${t.abbr ? `<span class="term-abbr">${highlight(t.abbr, q)}</span>` : ''}</div>
+            <div class="term-def">${highlight(t.def, q)}</div>
+            ${tagHtml(t.tags)}
+          </div>`).join('')}
+      </div>
+    </div>`;
+  });
+
+  // Clear and re-insert (keeping no-results and CTA)
+  const sections = main.querySelectorAll('.letter-section');
+  sections.forEach(s => s.remove());
+  main.insertAdjacentHTML('afterbegin', html);
+
+  nr.classList.toggle('visible', totalVisible === 0);
+  document.getElementById('result-count').textContent = q
+    ? `${totalVisible} result${totalVisible !== 1 ? 's' : ''}`
+    : `${totalTerms} terms`;
+}
+
+function highlight(text, q) {
+  if (!q || !text) return text;
+  const escaped = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return text.replace(new RegExp(`(${escaped})`, 'gi'), '<mark style="background:rgba(232,197,71,.25);color:inherit;border-radius:2px;padding:0 1px">$1</mark>');
+}
+
+function doSearch() {
+  const q = document.getElementById('search').value;
+  renderAll(q);
+  updateLetterNav(q);
+}
+
+// ── LETTER NAV ────────────────────────────────────────────────────────────────
+function buildLetterNav() {
+  const nav = document.getElementById('letter-nav');
+  const hasTerms = new Set(TERMS.map(t => t.letter));
+  nav.innerHTML = letters.map(l => {
+    const has = hasTerms.has(l);
+    return `<button class="ln-btn${has ? '' : ' empty'}" id="ln-${l}" ${has ? `onclick="jumpTo('${l}')"` : 'disabled'}>${l}</button>`;
+  }).join('');
+}
+
+function updateLetterNav(q) {
+  const lq = q.toLowerCase().trim();
+  letters.forEach(l => {
+    const btn = document.getElementById('ln-' + l);
+    if (!btn) return;
+    if (!byLetter[l].length) { btn.classList.add('empty'); return; }
+    const visible = byLetter[l].some(t =>
+      !lq ||
+      t.term.toLowerCase().includes(lq) ||
+      (t.abbr && t.abbr.toLowerCase().includes(lq)) ||
+      t.def.toLowerCase().includes(lq)
+    );
+    btn.classList.toggle('empty', !visible);
+    btn.disabled = !visible;
+  });
+}
+
+function jumpTo(l) {
+  const sec = document.getElementById('sec-' + l);
+  if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+buildLetterNav();
+renderAll('');
+</script>
+</body>
+</html>
